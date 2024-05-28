@@ -1,0 +1,42 @@
+{% extends 'advocate/dashboard.html' %}
+{% block title %}Advocate{% endblock title %}
+{% block dashboard_main %}
+<section class="advocates_list">
+    <h1>My Cases</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Advocate</th>
+                <th>Citizen</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Type</th>
+                <th>Result</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for case in cases %}
+            <tr>
+                <td>{{case.advocate}}</td>
+                <td>{{case.citizen}}</td>
+                <td>{{case.title}}</td>
+                <td>{{case.description}}</td>
+                <td>{{case.status}}</td>
+                <td>{{case.from}}</td>
+                <td>{{case.to}}</td>
+                <td>{{case.type}}</td>
+                {% if case.result == "1" %}
+                    <td>Success</td>
+                {% else %}
+                    <td>Fail</td>
+                {% endif %}
+                <td><a href="case_action/{{case.id}}">View Case</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

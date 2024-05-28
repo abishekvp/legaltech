@@ -1,0 +1,36 @@
+{% extends 'citizen/index.html' %}
+{% load static %}
+{% block title %}Profile{% endblock title %}
+{% block main %}
+<main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Case</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item">Users</li>
+          <li class="breadcrumb-item active">Case</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+    <section class="section">
+      <div class="row align-items-top">
+        <div class="col-lg-12">
+        {% for case in cases %}
+          <div class="card">
+            <div class="card-header">{{case.advocate}}</div>
+            <div class="card-body">
+              <h5 class="card-title text-justify">{{case.title}}</h5>
+              {{case.summary}}
+            </div>
+            <div class="card-footer">
+              {{case.email}}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+</main>
+{% endblock %}

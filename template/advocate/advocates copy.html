@@ -1,0 +1,27 @@
+{% extends 'advocate/dashboard.html' %}
+{% block title %}Lawyers{% endblock title %}
+{% block dashboard_main %}
+<section class="dashboard">
+    <h1>Advocates</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Experiance</th>
+                <th>Success Cases</th>
+                <th>Profile</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for advocate in advocates %}
+            <tr>
+                <td>{{advocate.username}}</td>
+                <td>{{advocate.experience_years}}</td>
+                <td>{{advocate.success_count}}</td>
+                <td><a href="advocate_profile/{{advocate.username}}">View Profile</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</section>
+{% endblock %}

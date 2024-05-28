@@ -1,0 +1,12 @@
+{% extends 'advocate/dashboard.html' %}
+{% block title %}Chat - Bot{% endblock title %}
+{% block chat_bot %}
+<section class="sec-chat_bot">
+    <a href="clear_chat"><button>Clear Chat</button></a>
+    <div class="chat_screen"></div>
+    <span>
+        <textarea name="messageInput" cols="50" rows="3" placeholder="Type a message..." id="messageInput"></textarea>
+        <button onclick="sendMessage()">Send</button>
+    </span>
+</section>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'dashboard.html' %}
+{% block title %}Dashboard{% endblock title %}
+{% block sidenav %}
+    <a href="happenings"><button>Happenings</button></a>
+    <a href="case_history"><button>Case History</button></a>
+    <a href="consultation"><button>Consultation</button></a>
+    <a href="my_case"><button>My Case</button></a>
+    <a href="profile"><button>Profile</button></a>
+    <a href="signout"><button>Sign Out</button></a>
+{% endblock %}
+
+{% block dashboard_main %}
+    <div class="happenings">
+        <h2 style="position: sticky;">Happenings</h2>
+        <p style="position: sticky;">Stay updated with the latest happenings in the legal world.</p>
+        {% for d,info in data.items %}
+        <div class="news_card">
+            <img src="{{info.image}}" alt="">
+            <div>
+                <h3>{{info.title}}</h3>
+                <p>{{info.description}}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block chat_bot %}
+    <a href="clear_chat"><button>Clear Chat History</button></a>
+    <div class="chat_screen"></div>
+    <span>
+        <textarea name="messageInput" cols="50" rows="3" placeholder="Type a message..." id="messageInput"></textarea>
+        <button onclick="sendMessage()">Send</button>
+    </span>
+{% endblock %}

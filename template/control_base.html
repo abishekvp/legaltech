@@ -1,0 +1,12 @@
+{% extends 'index.html' %}
+{% block title %}Master Admin{% endblock title %}
+{% block content %}
+<section class="dashboard">
+    <nav>
+        <p>
+            <img src="../../static/img/dp.png" alt="">
+            <span>{{ request.user.username }}</span>
+        </p>
+    </nav>
+</section>
+{% endblock %}

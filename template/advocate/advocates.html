@@ -1,0 +1,46 @@
+{% extends 'advocate/index.html' %}
+{% load static %}
+{% block title %}Advocates{% endblock title %}
+{% block main %}
+<main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Advocates</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item">Pages</li>
+          <li class="breadcrumb-item active">Advocates</li>
+        </ol>
+      </nav>
+    </div>
+    <section class="section">
+        <div class="row align-items-top">
+            <div class="col-lg-6">
+                {% for advocate in advocates %}
+                <div class="card mb-3">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="{% static 'assets/img/profile-img.jpg' %}" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                            <h5 class="card-title">{{advocate.username}}</h5>
+                            <p class="card-text">
+                                <p>Experience: {{advocate.experience_years}}</p><br>
+                                <p>Success Cases: {{advocate.success_count}}</p><br>
+                                <a href="advocate_profile/{{advocate.username}}">View Profile</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+          </div>
+        </div>
+    </section>
+                <td></td>
+                <td></td>
+                <td></td>
+</main>
+{% endblock %}

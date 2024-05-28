@@ -1,0 +1,59 @@
+{% extends 'advocate/dashboard.html' %}
+{% block title %}Profile{% endblock title %}
+{% block dashboard_main %}
+<section>
+    <h2>Profile</h2>
+    <form method="post">
+    {% csrf_token %}
+        <label for="f_name">First Name : <input type="text" name="f_name" id="f_name" placeholder="First Name" value="{{profile.firstname}}" required></label><br>
+        <label for="l_name">Last Name : <input type="text" name="l_name" id="l_name" placeholder="Last Name" value="{{profile.lastname}}" required></label><br>
+        <label for="username"> Username : <input type="text" name="username" id="username" placeholder="Username" value="{{profile.username}}" disabled></label><br>
+        <label for="email">Email : <input type="text" name="email" id="email" placeholder="Email" value="{{profile.email}}" disabled></label><br>
+        <label for="contact">Contact : <input type="tel" name="contact" id="contact" placeholder="Contact" value="{{profile.contact}}" required></label><br>
+        <label for="dob">DOB : <input type="date" name="dob" id="dob" placeholder="DOB" value="{{profile.dob}}" required></label><br>
+        <label for="expertise">Expertise : <input type="text" name="expertise" id="expertise" placeholder="Area of Expertise" value="{{profile.expertise}}" required></label><br>
+        <label for="experience">Experience : <input type="number" name="experience_years" id="experience_years" placeholder="Experience in years" value="{{profile.experience_years}}" required></label><br>
+        <label for="success">Success Case : <input type="number" name="success_count" id="success_count" placeholder="Success Record Count" value="{{profile.success_count}}" required></label><br>
+        <label for="success">Total Case : <input type="number" name="total_count" id="total_count" placeholder="total Record Count" value="{{profile.total_case}}" required></label><br>
+        <button type="submit">Update Profile</button><br>
+    </form>
+    <div class="case-form">
+        <h1>Create Case</h1>
+        <form method="post" action="create_case">
+        {% csrf_token %}
+            <label for="case_citizen">Case Client : <input type="text" name="case_citizen" id="case_citizen" placeholder="Case Client" required></label><br>
+            <label for="case_title">Case Title : <input type="text" name="case_title" id="case_title" placeholder="Case Title" required></label><br>
+            <label for="case_description">Case Description : <textarea cols="115" rows="10" name="case_description" id="case_description" placeholder="Case Description" required></textarea></label><br>
+            <label for="case_type">Case Type : <input type="text" name="case_type" id="case_type" placeholder="Case Type" required></label><br>
+            <label for="case_status">Case Status : <input type="text" name="case_status" id="case_status" placeholder="Case Status" required></label><br>
+            <label for="case_result">Case Result : 
+                <input type="radio" value=1 name="case_result" id="case_result" placeholder="Case Result" required>Success
+                <input type="radio" value=0 name="case_result" id="case_result" placeholder="Case Result" required>Fail
+            </label><br>
+            <label for="case_from">From : <input type="date" name="case_from" id="case_from" placeholder="Case Date" required></label><br>
+            <label for="case_to">To : <input type="date" name="case_to" id="case_to" placeholder="Case Date" required></label><br>
+            <button type="submit">Add Case</button>
+        </form>
+    </div>
+</section>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

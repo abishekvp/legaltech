@@ -1,0 +1,17 @@
+{% extends 'citizen/dashboard.html' %}
+{% block title %}Dashboard{% endblock title %}
+{% block dashboard_main %}
+    <div class="happenings">
+        <h2>Happenings</h2>
+        <p>Stay updated with the latest happenings in the legal world.</p>
+        {% for d,info in data.items %}
+        <div class="news_card">
+            <img src="{{info.image}}" alt="">
+            <div>
+                <h3>{{info.title}}</h3>
+                <p>{{info.description}}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

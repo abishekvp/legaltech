@@ -1,0 +1,12 @@
+{% extends 'index.html' %}
+{% block title %}Advocate Profile{% endblock title %}
+{% block content %}
+<section class="advocate_profile">
+    <p>{{ advocate.name }}</p>
+    <p>{{ advocate.experience_years }}</p>
+    <p>{{ advocate.success_count }}</p>
+    <p>{{ advocate.email }}</p>
+    <p>{{ advocate.phone }}</p>
+    <p></p>
+</section>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'citizen/dashboard.html' %}
+{% block title %}Chat - Bot{% endblock title %}
+{% block dashboard_main %}
+<div class="chat_bot">
+    {% csrf_token %}
+    <a href="clear_chat"><button>Clear Chat History</button></a>
+    <div class="chat_screen"></div>
+    
+    <span>
+        <textarea name="messageInput" id="messageInput" cols="50" rows="3" placeholder="Type a message..." id="messageInput" onkeypress="press(event)"></textarea>
+        <button id="send_message" onclick="sendMessage()">Send</button>
+    </span>
+</div>
+</section>
+<script>
+    function press(event) {
+        if (event.keyCode == 13 && !event.shiftKey) {
+            sendMessage();
+        }
+    }
+</script>
+{% endblock %}

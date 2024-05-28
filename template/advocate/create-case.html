@@ -1,0 +1,72 @@
+{% extends 'advocate/index.html' %}
+{% load static %}
+{% load static %}
+{% block title %}Profile{% endblock title %}
+{% block main %}
+<main id="main" class="main">
+  
+    <div class="pagetitle">
+      <h1>Profile</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item">Users</li>
+          <li class="breadcrumb-item active">Profile</li>
+        </ol>
+      </nav>
+    </div>
+
+    <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-10 col-md-6 d-flex flex-column align-items-center justify-content-center">
+  
+              <div class="d-flex justify-content-center py-4">
+                <a href="index.html" class="logo d-flex align-items-center w-auto">
+                  <img src="{% static 'img/logo.png' %}" alt="">
+                    <span class="d-none d-lg-block">LegalTech</span>
+                </a>
+              </div><!-- End Logo -->
+  
+              <div class="card mb-3">
+  
+                <div class="card-body">
+  
+                  <div class="pt-4 pb-2">
+                    <h5 class="card-title text-center pb-0 fs-4">Add an Case</h5>
+                    <p class="text-center small">Make sure about the case it cannot be edited after 48 hours of Submission</p>
+                  </div>
+  
+                  <form class="row g-3 needs-validation" novalidate method="post">
+                    {% csrf_token %}  
+                    <div class="col-12">
+                        <label for="label" class="form-label">Label</label>
+                        <input type="text" name="label" class="form-control" id="label" required>
+                        <div class="invalid-feedback">Please, enter valid label!</div>
+                    </div>
+                    <div class="col-12">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" name="title" class="form-control" id="title" required>
+                        <div class="invalid-feedback">Please, enter valid Title!</div>
+                    </div>
+                    <div class="col-12">
+                        <label for="summary" class="form-label">Case Summary</label>
+                        <textarea type="text" rows="7" name="summary" class="form-control" id="summary" required></textarea>
+                        <div class="invalid-feedback">Please, enter valid summary!</div>
+                    </div>
+  
+                    <div class="col-12">
+                      <button class="btn btn-primary w-100" type="submit">Add Case</button>
+                    </div>
+                  </form>
+  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+      </section>
+</main>
+
+{% endblock %}
